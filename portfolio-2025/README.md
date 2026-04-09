@@ -38,18 +38,91 @@ portfolio-2025/
 - React 19
 - Vite
 - TailwindCSS 4
-- React Hooks (useState, useEffect)
 
 ### Backend
 - Node.js
 - Express.js
 - MongoDB with Mongoose
 - CORS
+- dotenv
 
 ### Tools
 - npm
 - Nodemon (for development)
 - Concurrently (to run multiple commands)
+
+## 🔐 Environment Variables
+
+This project uses environment variables for configuration. You'll need to set up `.env` files in both the client and server directories.
+
+### Frontend Environment Variables (`client/.env`)
+
+| Variable | Description | Default Value | Example |
+|----------|-------------|---------------|---------|
+| `VITE_API_URL` | Backend API URL | `http://localhost:5000` | `https://your-backend.onrender.com` |
+
+**Example `client/.env` file:**
+```env
+# Backend API URL
+# For local development
+VITE_API_URL=http://localhost:5000
+
+# For production (Render/Railway)
+# VITE_API_URL=https://your-backend-app.onrender.com
+
+# For Vercel deployment
+# VITE_API_URL=https://your-vercel-url.vercel.app
+```
+
+### Backend Environment Variables (`server/.env`)
+
+| Variable | Description | Default Value | Example |
+|----------|-------------|---------------|---------|
+| `PORT` | Server port | `5000` | `5000` |
+| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/portfolio` | `mongodb+srv://user:pass@cluster.mongodb.net/portfolio` |
+| `ALLOWED_ORIGINS` | Comma-separated list of allowed frontend URLs for CORS | `http://localhost:3000,http://localhost:5173` | `https://your-portfolio.vercel.app,https://your-portfolio.netlify.app` |
+
+**Example `server/.env` file:**
+```env
+# Server Port
+PORT=5000
+
+# MongoDB Connection URI
+# For local development:
+MONGODB_URI=mongodb://localhost:27017/portfolio
+
+# For MongoDB Atlas (production):
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/portfolio?retryWrites=true&w=majority
+
+# Allowed Origins for CORS (comma-separated list)
+# Add your frontend URLs here (Vercel, Netlify, etc.)
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+
+# For production, add your deployed frontend URLs:
+# ALLOWED_ORIGINS=https://your-portfolio.vercel.app,https://your-portfolio.netlify.app
+```
+
+### Setting Up for Production Deployment
+
+#### For Vercel (Frontend)
+1. Go to your Vercel project settings
+2. Navigate to "Environment Variables"
+3. Add `VITE_API_URL` with your backend URL (e.g., `https://your-backend.onrender.com`)
+
+#### For Render/Railway (Backend)
+1. Go to your service dashboard
+2. Navigate to "Environment" tab
+3. Add the following variables:
+   - `PORT`: `5000` (or let Render assign automatically)
+   - `MONGODB_URI`: Your MongoDB Atlas connection string
+   - `ALLOWED_ORIGINS`: Your frontend URLs (comma-separated)
+
+#### MongoDB Atlas Setup
+1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create a database user with read/write permissions
+3. Get your connection string (replace `<password>` with your password)
+4. Whitelist all IPs (0.0.0.0/0) for cloud deployment or add specific IPs
+
 
 ## 🎯 Sections
 

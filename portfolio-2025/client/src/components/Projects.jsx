@@ -1,19 +1,19 @@
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce application with product management, cart functionality, and secure checkout process.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
-      image: '🛒',
+      title: 'FinAssist – Personal Financial Management System',
+      description: 'A full-stack finance management system supporting income tracking, budgeting, and goal planning. Implemented role-based access control (RBAC) for multi-user environments, integrated Razorpay payment gateway and Brevo email services for automation, and designed a financial forecasting model using Weighted Moving Average.',
+      technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Razorpay', 'Brevo', 'PDFKit'],
+      image: '💰',
       github: 'https://github.com/karthik2428',
       live: '#',
       featured: true
     },
     {
-      title: 'Task Management App',
-      description: 'A productivity app for managing tasks with features like drag-and-drop, priority settings, and real-time updates.',
-      technologies: ['React', 'Express', 'MongoDB', 'CSS3'],
-      image: '✅',
+      title: 'Netflix Clone',
+      description: 'A scalable full-stack application implementing CRUD operations via REST APIs. Built with React.js and Firebase, improved data handling efficiency using MongoDB and Express.js.',
+      technologies: ['React.js', 'Firebase', 'MongoDB', 'Express.js', 'REST APIs'],
+      image: '🎬',
       github: 'https://github.com/karthik2428',
       live: '#',
       featured: true

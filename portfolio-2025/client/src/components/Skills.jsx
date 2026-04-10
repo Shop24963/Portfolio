@@ -3,19 +3,19 @@ const Skills = () => {
     {
       title: 'Frontend Development',
       skills: [
-        { name: 'React.js', level: 85, icon: '⚛️' },
-        { name: 'JavaScript', level: 80, icon: '📜' },
-        { name: 'HTML5 & CSS3', level: 95, icon: '🎨' },
-        { name: 'TailwindCSS', level: 90, icon: '💨' },
+        { name: 'React.js', icon: '⚛️' },
+        { name: 'JavaScript', icon: '📜' },
+        { name: 'HTML5 & CSS3', icon: '🎨' },
+        { name: 'TailwindCSS', icon: '💨' },
       ]
     },
     {
       title: 'Backend Development',
       skills: [
-        { name: 'Node.js', level: 75, icon: '🟢' },
-        { name: 'Express.js', level: 75, icon: '🚂' },
-        { name: 'MongoDB', level: 70, icon: '🍃' },
-        { name: 'REST APIs', level: 80, icon: '🔌' },
+        { name: 'Node.js', icon: '🟢' },
+        { name: 'Express.js', icon: '🚂' },
+        { name: 'MongoDB', icon: '🍃' },
+        { name: 'REST APIs', icon: '🔌' },
       ]
     }
   ]
@@ -27,6 +27,10 @@ const Skills = () => {
     { name: 'Postman', icon: '📮' },
     { name: 'Vite', icon: '⚡' },
     { name: 'npm/yarn', icon: '📦' },
+    { name: 'Firebase', icon: '🔥' },
+    { name: 'Razorpay', icon: '💳' },
+    { name: 'Brevo', icon: '📧' },
+    { name: 'PDFKit', icon: '📄' },
   ]
 
   return (
@@ -42,22 +46,15 @@ const Skills = () => {
           {skillCategories.map((category, catIndex) => (
             <div key={catIndex} className="card">
               <h3 className="text-2xl font-bold mb-6 text-primary">{category.title}</h3>
-              <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">{skill.icon}</span>
-                        <span className="font-medium">{skill.name}</span>
-                      </div>
-                      <span className="text-primary font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
-                      <div 
-                        className="bg-gradient-to-r from-primary to-secondary h-full rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                  <div 
+                    key={skillIndex}
+                    className="group p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 
+                             hover:bg-primary/10 transition-all duration-300 cursor-pointer flex items-center gap-3"
+                  >
+                    <span className="text-2xl">{skill.icon}</span>
+                    <span className="font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -68,7 +65,7 @@ const Skills = () => {
         {/* Tools & Technologies */}
         <div className="card">
           <h3 className="text-2xl font-bold mb-8 text-center">Tools & Technologies</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {tools.map((tool, index) => (
               <div 
                 key={index}
